@@ -200,6 +200,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  actionmailer
   cssbundling-rails
   debug
   devise

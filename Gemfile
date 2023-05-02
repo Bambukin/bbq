@@ -14,6 +14,7 @@ gem 'cssbundling-rails'
 gem 'jquery-rails'
 gem 'uglifier'
 gem 'devise'
+gem 'actionmailer'
 
 group :development, :test do
   gem 'debug', platforms: %i[ mri mingw x64_mingw ]
