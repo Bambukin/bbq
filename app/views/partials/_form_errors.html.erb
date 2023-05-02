@@ -1,5 +1,4 @@
 <% errors = model.errors %>
-
 <% if errors.any? %>
   <div class="alert alert-danger d-flex justify-content-between align-items-center">
     <div>
@@ -8,8 +7,8 @@
       </div>
 
       <ul>
-        <% errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <% errors.each do |error| %>
+          <li><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>

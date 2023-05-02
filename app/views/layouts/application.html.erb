@@ -14,7 +14,7 @@
 
 <div class="navbar bg-body-tertiary">
   <div class="container">
-    <%= link_to "BBQ!", root_path, class: 'navbar-brand' %>
+    <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
     <nav class="navbar bg-body-tertiary">
       <% if user_signed_in? %>
         <%= button_to 'Профиль', current_user, method: :get, class: 'btn btn-outline-success me-2' %>
@@ -46,7 +46,7 @@
   </div>
 
   <footer>
-    <p>&copy; Bambukin 2023</p>
+    <p>&copy; <%= t('app.company') %> 2023</p>
   </footer>
 
 </div>

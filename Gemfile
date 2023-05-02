@@ -13,8 +13,12 @@ gem 'stimulus-rails'
 gem 'cssbundling-rails'
 gem 'jquery-rails'
 gem 'uglifier'
-gem 'devise'
 gem 'actionmailer'
+
+gem 'devise'
+gem 'devise-i18n'
+gem 'russian'
+
 
 group :development, :test do
   gem 'debug', platforms: %i[ mri mingw x64_mingw ]
