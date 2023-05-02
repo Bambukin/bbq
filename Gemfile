@@ -13,7 +13,6 @@ gem 'stimulus-rails'
 gem 'cssbundling-rails'
 gem 'jquery-rails'
 gem 'uglifier'
-gem 'twitter-bootstrap-rails'
 gem 'devise'
 
 group :development, :test do
