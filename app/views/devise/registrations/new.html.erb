@@ -1,0 +1,34 @@
+<h2>Регистрация</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="form-group buffer-both col-md-6">
+    <%= f.label :email, class: "form-label" %><br/>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+    <div class="form-text fst-italic">
+      Мы никогда никому не передадим вашу электронную почту
+    </div>
+  </div>
+
+  <div class="form-group buffer-both col-md-6">
+    <%= f.label :password, "Пароль", class: "form-label" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+    <% if @minimum_password_length %>
+      <div class="form-text fst-italic">
+        Пароль должен состоять хотя бы из <%= @minimum_password_length %> сиволов
+      </div>
+    <% end %>
+  </div>
+
+  <div class="form-group buffer-both col-md-6">
+    <%= f.label :password_confirmation, "Повторите пароль", class: "form-label" %><br/>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+  </div>
+
+  <div class="form-group buffer-both">
+    <%= f.submit "Sign up", class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
