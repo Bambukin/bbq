@@ -24,3 +24,8 @@ ru:
   app:
     name: 'Шашлыки'
     company: 'Bambukin'
+  plural:
+    error:
+      one: '%{count} ошибка'
+      few: '%{count} ошибки'
+      many: '%{count} ошибок'

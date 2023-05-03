@@ -3,7 +3,7 @@
   <div class="alert alert-danger d-flex justify-content-between align-items-center">
     <div>
       <div class="lead buffer-bottom">
-        В вашей форме <%= errors.count == 1 ? 'ошибка' : 'ошибки' %>:
+        В вашей форме <%= t('plural.error', count: errors.count) %>:
       </div>
 
       <ul>
