@@ -4,4 +4,14 @@
   <div class="col-md-6 buffer-top">
     <%= render 'form' %>
   </div>
+  <div class="actions buffer-both">
+    <%= button_to "Удалить событие",
+                  event_path(@event),
+                  data: {
+                    confirm: "Это действие безвозвратно удалит событие, продолжть?",
+                    turbo_confirm: "Это действие безвозвратно удалит событие, продолжть?"
+                  },
+                  method: :delete,
+                  class: 'btn btn-outline-danger' %>
+  </div>
 </div>
