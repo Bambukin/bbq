@@ -1,0 +1,24 @@
+<div class="buffer-bottom border border-secondary-subtle rounded px-3 py-1">
+  <div class="d-flex justify-content-between align-items-center">
+    <div>
+    <p><%= comment.body %></p>
+    <p>
+      <span>
+        <% if comment.user.present? %>
+          <%= render partial: 'users/user', object: comment.user %>
+        <% else %>
+          <em><strong><%= comment.user_name %></strong></em>
+        <% end %>
+      </span>
+    <em><%= l comment.created_at, format: :short %></em>
+    </p>
+    </div>
+    <% if current_user_can_edit?(comment) %>
+      <%= button_to(
+            '', event_comment_path(comment.event, comment),
+            method: :delete, data: { confirm: t('.destroy_confirm'), turbo_confirm: t('.destroy_confirm') },
+            class: "btn-close btn-outline-secondary"
+          ) %>
+    <% end %>
+  </div>
+</div>

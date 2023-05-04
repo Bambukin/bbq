@@ -85,6 +85,8 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.11.0)
       devise (>= 4.9.0)
+    email_validator (2.2.4)
+      activemodel
     erubi (1.12.0)
     execjs (2.8.1)
     globalid (1.1.0)
@@ -210,6 +212,7 @@ DEPENDENCIES
   debug
   devise
   devise-i18n
+  email_validator
   jquery-rails
   jsbundling-rails
   pg

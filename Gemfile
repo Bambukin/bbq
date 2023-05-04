@@ -14,6 +14,7 @@ gem 'cssbundling-rails'
 gem 'jquery-rails'
 gem 'uglifier'
 gem 'actionmailer'
+gem 'email_validator'
 
 gem 'devise'
 gem 'devise-i18n'

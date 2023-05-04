@@ -14,6 +14,13 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+      comment:
+        body: 'Комментарий'
+        user_name: 'Ваше имя'
+      subscription:
+        user_name: 'Ваше имя'
+        user_email: 'Ваш Email'
+
   controllers:
     events:
       created: 'Вы создали событие'
@@ -21,9 +28,27 @@ ru:
       destroyed: 'Вы удалили событие'
     user:
       updated: 'Вы обновили свой профиль'
+    comments:
+      destroyed: 'Комментарий удален'
+      created: 'Ваш комментарий добавлен'
+      error: 'Ошибка с комментарием'
+    subscription:
+      created: 'Вы подписались на это событие'
+      destroyed: 'Вы отписались'
+      error: 'Подписка/отписка не сработала'
+
+  comments:
+    comment:
+      destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
+
+  subscriptions:
+    subscription:
+      destroy_confirm: 'Вы уверены, что хотите удалить этот подписку?'
+
   app:
     name: 'Шашлыки'
     company: 'Bambukin'
+
   plural:
     error:
       one: '%{count} ошибка'

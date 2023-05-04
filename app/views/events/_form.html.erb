@@ -2,22 +2,22 @@
   <%= render partial: 'partials/form_errors', locals: {model: @event} %>
 
   <div class="form-group buffer-both">
-    <%= f.label :title %>
+    <%= f.label :title, class: "form-label" %>
     <%= f.text_field :title, class: 'form-control' %>
   </div>
 
   <div class="form-group buffer-both">
-    <%= f.label :address %>
+    <%= f.label :address, class: "form-label" %>
     <%= f.text_field :address, class: 'form-control' %>
   </div>
 
   <div class="form-group buffer-both">
-    <%= f.label :datetime %>
+    <%= f.label :datetime, class: "form-label" %>
     <p><%= f.datetime_select :datetime, class: 'form-control' %></p>
   </div>
 
   <div class="form-group buffer-both">
-    <%= f.label :description %>
+    <%= f.label :description, class: "form-label" %>
     <%= f.text_area :description, class: 'form-control' %>
   </div>
 
