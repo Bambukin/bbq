@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :name, presence: true, length: {maximum: 35}
 
   before_validation :set_name, on: :create
+  before_validation :downcase_email
 
   after_commit :link_subscriptions, on: :create
 
@@ -15,6 +16,10 @@ class User < ApplicationRecord
 
   def set_name
     self.name = "Друг №#{rand(777)}" if self.name.blank?
+  end
+
+  def downcase_email
+    email&.downcase!
   end
 
   def link_subscriptions

@@ -3,6 +3,8 @@ ru:
     models:
       user: 'Пользователь'
       event: 'Событие'
+      errors:
+        taken: 'уже занят'
     attributes:
       user:
         email: 'Email'

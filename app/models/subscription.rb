@@ -2,11 +2,14 @@ class Subscription < ApplicationRecord
   belongs_to :event
   belongs_to :user, optional: true
 
-  validates :user_name, presence: true, unless: :user_present?
-  validates :user_email, presence: true, email: true, unless: :user_present?
+  before_validation :downcase_user_email
 
+  validates :user_name, presence: true, unless: :user_present?
   validates :user_id, uniqueness: {scope: :event_id}, if: :user_present?
-  validates :user_email, uniqueness: {scope: :event_id}, unless: :user_present?
+  validates :user_email, presence: true, email: true, uniqueness: {scope: :event_id}, unless: :user_present?
+  validate :email_is_free, unless: :user_present?
+
+  private
 
   def user_name
     if user.present?
@@ -26,5 +29,15 @@ class Subscription < ApplicationRecord
 
   def user_present?
     user.present?
+  end
+
+  def downcase_user_email
+    user_email&.downcase!
+  end
+
+  def email_is_free
+    if User.exists?(email: user_email)
+      errors.add(:email, I18n.t('activerecord.models.errors.taken'))
+    end
   end
 end
