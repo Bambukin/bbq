@@ -14,12 +14,15 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+        user: 'Создатель'
       comment:
         body: 'Комментарий'
         user_name: 'Ваше имя'
+        event: 'Событие'
       subscription:
         user_name: 'Ваше имя'
         user_email: 'Ваш Email'
+        event: 'Событие'
 
   controllers:
     events:
