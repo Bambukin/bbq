@@ -20,6 +20,7 @@ ru:
         user_name: 'Ваше имя'
         event: 'Событие'
       subscription:
+        user_id: 'Пользователь'
         user_name: 'Ваше имя'
         user_email: 'Ваш Email'
         event: 'Событие'
