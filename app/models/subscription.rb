@@ -37,7 +37,7 @@ class Subscription < ApplicationRecord
 
   def email_is_free
     if User.exists?(email: user_email)
-      errors.add(:email, I18n.t('activerecord.models.errors.taken'))
+      errors.add(:user_email, :taken)
     end
   end
 end
