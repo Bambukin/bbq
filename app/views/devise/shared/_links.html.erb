@@ -11,15 +11,15 @@
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class: "link-secondary text-decoration-none" %><br />
+  <%= link_to "Не получили ниструкции по подтверждению?", new_confirmation_path(resource_name), class: "link-secondary text-decoration-none" %><br />
 <% end %>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name), class: "link-secondary text-decoration-none" %><br />
+  <%= link_to "Не получили инструции по разблокрировке?", new_unlock_path(resource_name), class: "link-secondary text-decoration-none" %><br />
 <% end %>
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= button_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), data: { turbo: false }, class: 'btn btn-primary' %><br />
+    <%= button_to "Войти с #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), data: { turbo: false }, class: 'btn btn-primary' %><br />
   <% end %>
 <% end %>
