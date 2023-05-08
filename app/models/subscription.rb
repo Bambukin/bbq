@@ -9,8 +9,6 @@ class Subscription < ApplicationRecord
   validates :user_email, presence: true, email: true, uniqueness: {scope: :event_id}, unless: :user_present?
   validate :email_is_free, unless: :user_present?
 
-  private
-
   def user_name
     if user.present?
       user.name
@@ -26,6 +24,8 @@ class Subscription < ApplicationRecord
       super
     end
   end
+
+  private
 
   def user_present?
     user.present?
