@@ -16,7 +16,7 @@
 
           <% if current_user_can_edit?(@event) %>
             <div class="buffer-both">
-              <%= link_to 'Изменить', edit_event_path(@event),
+              <%= link_to t('link.edit_event'), edit_event_path(@event),
                           class: 'btn btn-primary' %>
             </div>
           <% end %>
@@ -39,11 +39,11 @@
 
     <div class="col-md-4">
       <div class="event-owner">
-        <h4>Зовет:</h4>
+        <h4><%= t('events.event.owner') %></h4>
         <p class="border border-secondary-subtle rounded px-3 py-1"><%= render partial: 'users/user', object: @event.user %></p>
       </div>
       <div class="event-subscriptions">
-        <h4>Пойдут:</h4>
+        <h4><%= t('events.event.guests') %></h4>
         <div>
           <p>
             <%= render(
@@ -55,7 +55,7 @@
       </div>
       <% unless @current_user_is_owner %>
         <div class="event-subscription-form">
-          <h4>Я пойду:</h4>
+          <h4><%= t('events.event.subscribe') %></h4>
           <div>
             <%= render partial: 'subscriptions/form', locals: {subscription: @new_subscription || @event.subscriptions.build} %>
           </div>

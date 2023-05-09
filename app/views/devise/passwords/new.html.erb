@@ -1,4 +1,4 @@
-<h2>Забыли пароль?</h2>
+<h2><%= t('devise.passwords.new') %></h2>
 
 <div class="col-md-6 buffer-top">
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
@@ -10,7 +10,7 @@
     </div>
 
     <div class="form-group buffer-both">
-      <%= f.submit "Отправить инструкцию по сбросу пароля", class: 'btn btn-primary' %>
+      <%= f.submit t('button.password_reset'), class: 'btn btn-primary' %>
     </div>
   <% end %>
 

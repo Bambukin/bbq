@@ -1,4 +1,4 @@
-<h2>Смена пароля</h2>
+<h2><%= t('devise.registrations.edit') %></h2>
 
 <div class="col-md-6 buffer-top">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -11,40 +11,41 @@
     <% end %>
 
     <div class="form-group buffer-both">
-      <%= f.label :password, "Пароль", class: "form-label" %>
+      <%= f.label :password, class: "form-label" %>
       <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: 'form-control' %>
       <% if @minimum_password_length %>
         <div class="form-text fst-italic">
-          Пароль должен состоять хотя бы из <%= @minimum_password_length %> сиволов
+          <%= t('devise.registrations.password_too_short', count: @minimum_password_length) %>
         </div>
       <% end %>
     </div>
 
     <div class="form-group buffer-both">
-      <%= f.label :password_confirmation, "Повторите пароль", class: "form-label" %>
+      <%= f.label :password_confirmation, class: "form-label" %>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
     </div>
 
     <div class="form-group buffer-both">
-      <%= f.label :current_password, "Текущий пароль", class: "form-label" %>
+      <%= f.label :current_password, class: "form-label" %>
       <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control' %>
       <div class="form-text fst-italic">
-        Текущий пароль нужен для подтвердения изменений
+        <%= t('devise.registrations.need_to_confirm') %>
       </div>
     </div>
 
     <div class="form-group buffer-both">
-      <%= f.submit "Обновить", class: 'btn btn-primary' %>
-      или <%= link_to 'вернуться', :back, class: "link-primary text-decoration-none" %>
+      <%= f.submit I18n.t('button.update'), class: 'btn btn-primary' %>
+      <%= t('link.or') %>
+      <%= link_to I18n.t('link.back'), :back, class: "link-primary text-decoration-none" %>
     </div>
   <% end %>
 
   <div class="buffer-both">
-    <%= button_to "Удалить аккаунт",
+    <%= button_to I18n.t('button.delete_account'),
                   registration_path(resource_name),
                   data: {
-                    confirm: "Это действие безвозвратно удалит ваш аккаунт, продолжть?",
-                    turbo_confirm: "Это действие безвозвратно удалит ваш аккаунт, продолжть?"
+                    confirm: I18n.t('users.user.destroy_confirm'),
+                    turbo_confirm: I18n.t('users.user.destroy_confirm')
                   },
                   method: :delete,
                   class: 'btn btn-danger' %>

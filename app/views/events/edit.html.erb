@@ -1,15 +1,15 @@
-<h1>Редактирование события</h1>
+<h1><%= t('events.event.edit') %></h1>
 
 <div class="row">
   <div class="col-md-6 buffer-top">
     <%= render 'form' %>
   </div>
   <div class="actions buffer-both">
-    <%= button_to "Удалить событие",
+    <%= button_to t('button.destroy_event'),
                   event_path(@event),
                   data: {
-                    confirm: "Это действие безвозвратно удалит событие, продолжть?",
-                    turbo_confirm: "Это действие безвозвратно удалит событие, продолжть?"
+                    confirm: t('events.event.destroy_confirm'),
+                    turbo_confirm: t('events.event.destroy_confirm')
                   },
                   method: :delete,
                   class: 'btn btn-outline-danger' %>

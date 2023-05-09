@@ -32,6 +32,7 @@ ru:
       destroyed: 'Вы удалили событие'
     user:
       updated: 'Вы обновили свой профиль'
+      friend: "Друг №"
     comments:
       destroyed: 'Комментарий удален'
       created: 'Ваш комментарий добавлен'
@@ -49,12 +50,62 @@ ru:
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить этот подписку?'
 
+  users:
+    user:
+      destroy_confirm: 'Это действие безвозвратно удалит ваш аккаунт, продолжть?'
+      edit: 'Редактирование профиля'
+      events: 'Организовал:'
+      no_events: 'Пользователь пока не организовал ни одного события'
+
+  events:
+    all: 'События'
+    event:
+      new: 'Новое событие'
+      edit: 'Редактирование события'
+      destroy_confirm: 'Это действие безвозвратно удалит событие, продолжть?'
+      owner: 'Зовет:'
+      guests: 'Пойдут:'
+      subscribe: 'Я пойду:'
+
+  devise:
+    passwords:
+      new: 'Забыли пароль?'
+    registrations:
+      edit: 'Смена пароля'
+      need_to_confirm: 'Текущий пароль нужен для подтвердения изменений'
+      new: 'Регистрация'
+      email_protected: 'Мы никогда никому не передадим вашу электронную почту'
+      password_too_short: 'Пароль должен состоять хотя бы из %{count} символов'
+    sessions:
+      new: 'Вход'
+
+  button:
+    send: 'Отправить'
+    password_reset: 'Отправить инструкцию по сбросу пароля'
+    update: 'Обновить'
+    delete_account: 'Удалить аккаунт'
+    registration: 'Регистрация'
+    sign_in: 'Войти'
+    sign_out: 'Выйти'
+    profile: 'Профиль'
+    save: 'Сохранить'
+    destroy_event: 'Удалить событие'
+    subscribe: 'Подписаться'
+
+  link:
+    back: 'вернуться'
+    create_event: 'Создать событие'
+    edit_event: 'Изменить'
+    edit_profile: 'Редактировать профиль'
+    change_password: 'Сменить пароль'
+    or: 'или'
+
   app:
     name: 'Шашлыки'
     company: 'Bambukin'
 
   plural:
     error:
-      one: '%{count} ошибка'
-      few: '%{count} ошибки'
-      many: '%{count} ошибок'
+      one: 'В вашей форме %{count} ошибка'
+      few: 'В вашей форме %{count} ошибки'
+      many: 'В вашей форме %{count} ошибок'
