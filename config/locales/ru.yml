@@ -3,6 +3,9 @@ ru:
     models:
       user: 'Пользователь'
       event: 'Событие'
+      subscription: 'Подписка'
+      comment: 'Комментарий'
+      photo: 'Фотография'
     attributes:
       user:
         email: 'Email'
@@ -25,6 +28,8 @@ ru:
         user_name: 'Ваше имя'
         user_email: 'Ваш Email'
         event: 'Событие'
+      photo:
+        photo: 'Фото'
 
   controllers:
     events:
@@ -42,10 +47,19 @@ ru:
       created: 'Вы подписались на это событие'
       destroyed: 'Вы отписались'
       error: 'Подписка/отписка не сработала'
+    photos:
+      created: 'Вы добавили фото к событию'
+      destroyed: 'Вы удалили фото'
+      error: 'Что-то не так с фоткой'
+
 
   comments:
     comment:
       destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
+
+  photos:
+    photo:
+      destroy_confirm: 'Вы уверены, что хотите удалить эту фотографию?'
 
   subscriptions:
     subscription:
@@ -92,6 +106,7 @@ ru:
     save: 'Сохранить'
     destroy_event: 'Удалить событие'
     subscribe: 'Подписаться'
+    upload: 'Загрузить'
 
   link:
     back: 'вернуться'

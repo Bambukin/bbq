@@ -1,8 +1,10 @@
 <div class="event">
   <div class="event-info row">
     <div class="col-md-12">
-      <%= content_tag 'div', '', class: 'event-background',
-                      style: "background-image: url(#{asset_path('event.jpg')})" %>
+      <%= content_tag 'div', '',
+                      class: 'event-background',
+                      style: "background-image: url(#{event_photo(@event)}"
+      %>
 
       <div class="event-info-inner row">
         <div class="col-md-6">
@@ -27,9 +29,19 @@
 
   <div class="row">
     <div class="col-md-8">
+      <div class="event-photos">
+        <div class="event-photos-gallery">
+          <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
+        </div>
+
+        <div class="event-photo-form">
+          <%= render partial: 'photos/form', locals: { photo: @new_photo || @event.photos.build } %>
+        </div>
+      </div>
+
       <div class="event-comments buffer-both">
 
-        <%= render partial: 'comments/form', locals: {comment: @new_comment || @event.comments.build} %>
+        <%= render partial: 'comments/form', locals: { comment: @new_comment || @event.comments.build } %>
 
         <div class="buffer-both">
           <%= render partial: 'comments/comment', collection: @event.comments.except(@new_comment) %>
@@ -57,7 +69,7 @@
         <div class="event-subscription-form">
           <h4><%= t('events.event.subscribe') %></h4>
           <div>
-            <%= render partial: 'subscriptions/form', locals: {subscription: @new_subscription || @event.subscriptions.build} %>
+            <%= render partial: 'subscriptions/form', locals: { subscription: @new_subscription || @event.subscriptions.build } %>
           </div>
         </div>
       <% end %>

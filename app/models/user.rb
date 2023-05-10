@@ -3,9 +3,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :photos, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
 
   validates :name, presence: true, length: {maximum: 35}
+  validates :avatar, presence: true
 
   before_validation :set_name, on: :create
   before_validation :downcase_email
