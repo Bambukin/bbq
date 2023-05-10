@@ -14,27 +14,28 @@ class PhotosController < ApplicationController
   end
 
   def destroy
-    message = {notice: I18n.t('controllers.photos.destroyed')}
+    message = { notice: I18n.t('controllers.photos.destroyed') }
 
     if current_user_can_edit?(@photo)
       @photo.destroy
     else
-      message = {alert: I18n.t('controllers.photos.error')}
+      message = { alert: I18n.t('controllers.photos.error') }
     end
 
     redirect_to @event, message
   end
 
   private
-    def set_event
-      @event = Event.find(params[:event_id])
-    end
 
-    def set_photo
-      @photo = @event.photos.find(params[:id])
-    end
+  def set_event
+    @event = Event.find(params[:event_id])
+  end
 
-    def photo_params
-      params.fetch(:photo, {}).permit(:photo)
-    end
+  def set_photo
+    @photo = @event.photos.find(params[:id])
+  end
+
+  def photo_params
+    params.fetch(:photo, {}).permit(:photo)
+  end
 end
