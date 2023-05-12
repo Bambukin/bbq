@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.1'
 
+gem 'aws-sdk-s3'
 gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
 gem 'sprockets-rails'
 gem 'pg'
@@ -12,8 +13,8 @@ gem 'turbo-rails'
 gem 'stimulus-rails'
 gem 'cssbundling-rails'
 gem 'email_validator'
-gem 'carrierwave'
-gem 'rmagick'
+gem "image_processing", ">= 1.2"
+gem 'activestorage-validator'
 
 gem 'devise'
 gem 'devise-i18n'

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :photos, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
     resources :subscriptions, only: [:create, :destroy]
+    resources :photos, only: [:create, :destroy]
   end
   resources :users, only: [:show, :edit, :update]
 

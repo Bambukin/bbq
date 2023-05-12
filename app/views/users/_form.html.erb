@@ -15,7 +15,7 @@
 
   <div class="form-group buffer-both">
     <%= f.label :avatar, class: "form-label" %>
-    <p><%= image_tag(@user.avatar.thumb.url) if @user.avatar?%></p>
+    <p><%= image_tag(@user.avatar.variant(:thumb)) if @user.avatar.persisted? %></p>
     <%= f.file_field :avatar, class: 'form-control' %>
   </div>
 

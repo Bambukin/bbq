@@ -5,7 +5,7 @@ ru:
       event: 'Событие'
       subscription: 'Подписка'
       comment: 'Комментарий'
-      photo: 'Фотография'
+      photo: 'Фото'
     attributes:
       user:
         email: 'Email'
@@ -30,6 +30,16 @@ ru:
         event: 'Событие'
       photo:
         photo: 'Фото'
+    errors:
+      models:
+        photo:
+          attributes:
+            photo:
+              content_type: "недопустимый тип файла"
+        user:
+          attributes:
+            avatar:
+              content_type: "недопустимый тип файла"
 
   controllers:
     events:
@@ -51,7 +61,6 @@ ru:
       created: 'Вы добавили фото к событию'
       destroyed: 'Вы удалили фото'
       error: 'Что-то не так с фоткой'
-
 
   comments:
     comment:
