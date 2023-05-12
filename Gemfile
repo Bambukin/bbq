@@ -12,6 +12,8 @@ gem 'turbo-rails'
 gem 'stimulus-rails'
 gem 'cssbundling-rails'
 gem 'email_validator'
+gem "image_processing", ">= 1.2"
+gem 'activestorage-validator'
 
 gem 'devise'
 gem 'devise-i18n'

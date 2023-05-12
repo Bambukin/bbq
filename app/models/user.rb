@@ -4,7 +4,11 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
+  has_one_attached :avatar do |attachable|
+    attachable.variant :thumb, resize_to_fill: [200, 200]
+  end
 
+  validates :avatar, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }
   validates :name, presence: true, length: {maximum: 35}
 
   before_validation :set_name, on: :create

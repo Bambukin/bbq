@@ -29,7 +29,7 @@
     <div class="col-md-8">
       <div class="event-comments buffer-both">
 
-        <%= render partial: 'comments/form', locals: {comment: @new_comment || @event.comments.build} %>
+        <%= render partial: 'comments/form', locals: { comment: @new_comment || @event.comments.build } %>
 
         <div class="buffer-both">
           <%= render partial: 'comments/comment', collection: @event.comments.except(@new_comment) %>
@@ -57,7 +57,7 @@
         <div class="event-subscription-form">
           <h4><%= t('events.event.subscribe') %></h4>
           <div>
-            <%= render partial: 'subscriptions/form', locals: {subscription: @new_subscription || @event.subscriptions.build} %>
+            <%= render partial: 'subscriptions/form', locals: { subscription: @new_subscription || @event.subscriptions.build } %>
           </div>
         </div>
       <% end %>
