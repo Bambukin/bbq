@@ -5,6 +5,7 @@ ru:
       event: 'Событие'
       subscription: 'Подписка'
       comment: 'Комментарий'
+      photo: 'Фото'
     attributes:
       user:
         email: 'Email'
@@ -27,6 +28,19 @@ ru:
         user_name: 'Ваше имя'
         user_email: 'Ваш Email'
         event: 'Событие'
+      photo:
+        photo: 'Фото'
+    errors:
+      models:
+        photo:
+          attributes:
+            photo:
+              content_type: "недопустимый тип файла"
+        user:
+          attributes:
+            avatar:
+              content_type: "недопустимый тип файла"
+
 
 
   controllers:

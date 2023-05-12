@@ -12,6 +12,7 @@ class EventsController < ApplicationController
     @current_user_is_owner = current_user_can_edit?(@event)
     @new_comment = @event.comments.build(params[:comment])
     @new_subscription = @event.subscriptions.build(params[:subscription])
+    @new_photo = @event.photos.build(params[:photo])
   end
 
   def new
