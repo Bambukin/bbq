@@ -7,7 +7,7 @@ class Subscription < ApplicationRecord
   validates :user_name, presence: true, unless: :user_present?
   validates :user_id, uniqueness: {scope: :event_id}, if: :user_present?
   validates :user_email, presence: true, email: true, uniqueness: {scope: :event_id}, unless: :user_present?
-  validate :owner_email, if: :user_present?
+  validate :event_host, if: :user_present?
   validate :email_is_free, unless: :user_present?
 
   def user_name
@@ -42,8 +42,8 @@ class Subscription < ApplicationRecord
     end
   end
 
-  def owner_email
-    if user_email == User.joins(:events).find_by(events: { id: event_id }).email
+  def event_host
+    if user_id == self.event.user.id
       errors.add(:user_id, :invalid)
     end
   end
