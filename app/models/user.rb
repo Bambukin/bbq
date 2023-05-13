@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   validates :avatar, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }
   validates :avatar, presence: true, on: :update
-  validates :name, presence: true, length: {maximum: 35}
+  validates :name, presence: true, length: { maximum: 35 }
 
   before_validation :set_name, on: :create
   before_validation :downcase_email

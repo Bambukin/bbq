@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   if Rails.env.development?
     before_action do
-      ActiveStorage::Current.url_options = {protocol: request.protocol, host: request.host, port: request.port}
+      ActiveStorage::Current.url_options = { protocol: request.protocol, host: request.host, port: request.port }
     end
   end
 
