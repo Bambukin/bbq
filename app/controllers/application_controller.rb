@@ -11,4 +11,18 @@ class ApplicationController < ActionController::Base
     user_signed_in? &&
       (model.user == current_user || (model.try(:event).present? && model.event.user == current_user))
   end
+
+  def notify_subscribers(event, object)
+    all_emails = (event.subscriptions.map(&:user_email) + [event.user.email] - [current_user&.email])
+    # binding.irb
+    if object.class.name == 'Photo'
+      all_emails.each do |mail|
+        EventMailer.photo(event, object, mail).deliver_later
+      end
+    else
+      all_emails.each do |mail|
+        EventMailer.comment(event, object, mail).deliver_later
+      end
+    end
+  end
 end

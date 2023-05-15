@@ -75,6 +75,13 @@ ru:
       destroy_confirm: 'Вы уверены, что хотите удалить этот подписку?'
 
   event_mailer:
+    photo:
+      new_photo: 'Новая фотография в %{title}'
+      title: 'Новая фотография'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
     comment:
       new_comment: 'Новый комментарий в %{title}'
       title: 'Новый комментарий'
