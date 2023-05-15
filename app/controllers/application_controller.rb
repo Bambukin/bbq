@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   def notify_subscribers(event, object)
     all_emails = (event.subscriptions.map(&:user_email) + [event.user.email] - [current_user&.email])
 
-    if object.class.name == 'Photo'
+    if object.is_a?(Photo)
       all_emails.each do |mail|
         EventMailer.photo(event, object, mail).deliver_later
       end
