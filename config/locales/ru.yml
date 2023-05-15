@@ -74,6 +74,24 @@ ru:
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить этот подписку?'
 
+  event_mailer:
+    comment:
+      new_comment: 'Новый комментарий в %{title}'
+      title: 'Новый комментарий'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+    subscription:
+      new_subscription: 'Новая подписка на %{title}'
+      title: 'Новая подписка'
+      name: 'Имя'
+      email: 'Email'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+
   users:
     user:
       destroy_confirm: 'Это действие безвозвратно удалит ваш аккаунт, продолжть?'
@@ -94,6 +112,10 @@ ru:
   devise:
     passwords:
       new: 'Забыли пароль?'
+      edit: 'Смена пароля'
+      new_password: 'Новый пароль'
+      new_password_confirmation: 'Подтверждение нового пароля'
+      password_too_short: 'Пароль должен состоять хотя бы из %{count} символов'
     registrations:
       edit: 'Смена пароля'
       need_to_confirm: 'Текущий пароль нужен для подтвердения изменений'
@@ -106,6 +128,7 @@ ru:
   button:
     send: 'Отправить'
     password_reset: 'Отправить инструкцию по сбросу пароля'
+    change_password: 'Сменить пароль'
     update: 'Обновить'
     delete_account: 'Удалить аккаунт'
     registration: 'Регистрация'
