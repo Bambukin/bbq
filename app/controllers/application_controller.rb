@@ -12,16 +12,16 @@ class ApplicationController < ActionController::Base
       (model.user == current_user || (model.try(:event).present? && model.event.user == current_user))
   end
 
-  def notify_subscribers(event, object)
-    all_emails = (event.subscriptions.map(&:user_email) + [event.user.email] - [current_user&.email])
+  def notify_subscribers(object)
+    all_emails = (object.event.subscriptions.map(&:user_email) + [object.event.user.email] - [current_user&.email])
 
     if object.is_a?(Photo)
       all_emails.each do |mail|
-        EventMailer.photo(event, object, mail).deliver_later
+        EventMailer.photo(object, mail).deliver_later
       end
     else
       all_emails.each do |mail|
-        EventMailer.comment(event, object, mail).deliver_later
+        EventMailer.comment(object, mail).deliver_later
       end
     end
   end
