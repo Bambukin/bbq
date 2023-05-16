@@ -10,7 +10,6 @@ class User < ApplicationRecord
   end
 
   validates :avatar, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }
-  validates :avatar, presence: true, on: :update
   validates :name, presence: true, length: { maximum: 35 }
 
   before_validation :set_name, on: :create
