@@ -19,6 +19,7 @@ ru:
         datetime: 'Дата и время'
         description: 'Описание'
         user: 'Создатель'
+        pincode: 'Пинкод доступа'
       comment:
         body: 'Комментарий'
         user_name: 'Ваше имя'
@@ -46,6 +47,7 @@ ru:
       created: 'Вы создали событие'
       updated: 'Вы обновили событие'
       destroyed: 'Вы удалили событие'
+      wrong_pincode: 'Неверный пинкод!'
     user:
       updated: 'Вы обновили свой профиль'
       friend: "Друг №"
@@ -115,6 +117,7 @@ ru:
       owner: 'Зовет:'
       guests: 'Пойдут:'
       subscribe: 'Я пойду:'
+      need_pincode: 'Доступ только по пин-коду'
 
   devise:
     passwords:
@@ -149,6 +152,7 @@ ru:
 
   link:
     back: 'вернуться'
+    main: 'на главную'
     create_event: 'Создать событие'
     edit_event: 'Изменить'
     edit_profile: 'Редактировать профиль'
