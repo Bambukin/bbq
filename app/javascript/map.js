@@ -1,4 +1,6 @@
 document.addEventListener('turbo:load', function (event) {
+    document.getElementById('map').innerHTML = '';
+
     ymaps.ready(init);
     var myMap;
 
