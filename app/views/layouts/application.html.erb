@@ -34,7 +34,7 @@
   <div class="row">
     <div class="col-lg-9">
       <% flash.each do |key, value| %>
-        <div class="alert <%= flash_class(key) %> d-flex justify-content-between align-items-center">
+        <div class="alert <%= flash_class(key) %> d-flex justify-content-between align-items-center" data-turbo-temporary>
           <%= value %>
           <button type="button" class="btn-close btn-outline-secondary" data-bs-dismiss="alert" aria-label="close"></button>
         </div>

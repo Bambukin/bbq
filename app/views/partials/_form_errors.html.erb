@@ -1,6 +1,6 @@
 <% errors = model.errors %>
 <% if errors.any? %>
-  <div class="alert alert-danger d-flex justify-content-between">
+  <div class="alert alert-danger d-flex justify-content-between" data-turbo-temporary>
     <div>
       <div class="lead buffer-bottom">
         <%= t('plural.error', count: errors.count) %>:
