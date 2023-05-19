@@ -41,13 +41,14 @@
   <% end %>
 
   <div class="buffer-both">
-    <%= button_to I18n.t('button.delete_account'),
-                  registration_path(resource_name),
-                  data: {
-                    confirm: I18n.t('users.user.destroy_confirm'),
-                    turbo_confirm: I18n.t('users.user.destroy_confirm')
-                  },
-                  method: :delete,
-                  class: 'btn btn-danger' %>
+    <%= button_tag t('button.delete_account'),
+                   class: "btn btn-outline-danger",
+                   data: { bs_toggle: "modal", bs_target: "#resource-#{resource.id}"} %>
+    <%= render partial: 'partials/destroy_confirm',
+               locals: {
+                 title: t('users.user.destroy_confirm'),
+                 path: registration_path(resource_name),
+                 id: "resource-#{resource.id}"
+               } %>
   </div>
 </div>

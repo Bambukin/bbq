@@ -5,13 +5,14 @@
     <%= render 'form' %>
   </div>
   <div class="actions buffer-both">
-    <%= button_to t('button.destroy_event'),
-                  event_path(@event),
-                  data: {
-                    confirm: t('events.event.destroy_confirm'),
-                    turbo_confirm: t('events.event.destroy_confirm')
-                  },
-                  method: :delete,
-                  class: 'btn btn-outline-danger' %>
+    <%= button_tag t('button.destroy_event'),
+                   class: "btn btn-outline-danger",
+                   data: { bs_toggle: "modal", bs_target: "#event-#{@event.id}"} %>
+    <%= render partial: 'partials/destroy_confirm',
+               locals: {
+                 title: t('events.event.destroy_confirm'),
+                 path: event_path(@event),
+                 id: "event-#{@event.id}"
+               } %>
   </div>
 </div>

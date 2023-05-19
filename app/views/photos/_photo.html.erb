@@ -1,11 +1,16 @@
 <div class="img-wrap">
   <% if current_user_can_edit?(photo) %>
     <span class="close-icon-my">
-      <%= button_to('', event_photo_path(photo.event, photo),
-                    method: :delete,
-                    data: { confirm: t('.destroy_confirm'), turbo_confirm: t('.destroy_confirm') },
-                    class: "btn-close btn-outline-secondary") %>
+      <%= button_tag '',
+                     class: "btn-close btn-outline-secondary",
+                     data: { bs_toggle: "modal", bs_target: "#photo-#{photo.id}"} %>
     </span>
+    <%= render partial: 'partials/destroy_confirm',
+               locals: {
+                 title: t('.destroy_confirm'),
+                 path: event_photo_path(photo.event, photo),
+                 id: "photo-#{photo.id}"
+               } %>
   <% end %>
 
   <div class="image-container pswp-gallery__item">
