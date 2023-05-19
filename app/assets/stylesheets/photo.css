@@ -6,11 +6,9 @@
   display: inline-block;
 }
 
-.image-container img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  display: block;
+.img-wrap {
+  position: relative;
+  display: inline-block;
 }
 
 .close-icon-my {
@@ -19,6 +17,14 @@
   right: 10px;
   font-size: 15px;
   cursor: pointer;
+  z-index: 100;
+}
+
+.image-container img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .pswp__custom-caption {
