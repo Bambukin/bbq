@@ -9,3 +9,4 @@ ____________________
 <%= t '.event' %>: <%= @event.title %>
 <%= t '.datetime' %>: <%= l(@event.datetime, format: :short) %>
 <%= t '.owner' %>: <%= @event.user.name %>
+<%= url_for(@event) %>
