@@ -61,7 +61,10 @@
         <p class="border border-secondary-subtle rounded px-3 py-1"><%= render partial: 'users/user', object: @event.user %></p>
       </div>
       <div class="event-subscriptions">
-        <h4><%= t('events.event.guests') %></h4>
+        <% if @event.subscriptions.except(@new_subscription).any? %>
+          <h4><%= t('events.event.guests') %></h4>
+        <% end %>
+
         <div>
           <p>
             <%= render(
@@ -71,7 +74,7 @@
           </p>
         </div>
       </div>
-      <% unless @current_user_is_owner %>
+      <% unless @current_user_is_owner || is_subscriber? %>
         <div class="event-subscription-form">
           <h4><%= t('events.event.subscribe') %></h4>
           <div>
