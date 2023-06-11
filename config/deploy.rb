@@ -4,8 +4,10 @@ lock "~> 3.17.3"
 set :application, "bbq"
 set :repo_url, "git@github.com:Bambukin/bbq.git"
 
-Default branch is :main
+# Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+
+set :branch, 'main'
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/deploy/www/bbq"
