@@ -1,0 +1,6 @@
+<% flash.each do |type, message| %>
+  <div class="alert <%= flash_class(type) %> d-flex justify-content-between align-items-center" data-turbo-temporary>
+    <%= message %>
+    <button type="button" class="btn-close btn-outline-secondary" data-bs-dismiss="alert" aria-label="close"></button>
+  </div>
+<% end %>

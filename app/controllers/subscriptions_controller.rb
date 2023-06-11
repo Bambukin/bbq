@@ -11,6 +11,8 @@ class SubscriptionsController < ApplicationController
       redirect_to @event, notice: I18n.t('controllers.subscription.created')
     else
       render 'events/show', alert: I18n.t('controllers.subscription.error')
+      # flash.keep[:success] = I18n.t('controllers.subscription.error')
+      # render turbo_stream: turbo_stream.update("flash", partial: "shared/flash")
     end
   end
 
