@@ -33,6 +33,7 @@ group :development do
   gem 'capistrano-passenger'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
+  gem 'capistrano-yarn'
   gem 'ed25519', '~> 1.2'
   gem 'bcrypt_pbkdf', '~> 1.0'
   gem 'aws-sdk-s3'
