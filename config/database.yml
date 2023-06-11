@@ -14,4 +14,8 @@ test:
 
 production:
   adapter: postgresql
-  url: <%= ENV["DATABASE_URL"] %>
+  host: localhost
+  port: 5432
+  database: bbq_prod
+  user: bbq
+  password: Rails.application.credentials.dig(:bd, :password)
