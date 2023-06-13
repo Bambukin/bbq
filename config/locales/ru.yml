@@ -165,6 +165,9 @@ ru:
     name: 'Шашлыки'
     company: 'Bambukin'
 
+  pundit:
+    not_authorized: 'Вам сюда нельзя'
+
   plural:
     error:
       one: 'В вашей форме %{count} ошибка'

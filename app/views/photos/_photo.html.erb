@@ -1,5 +1,5 @@
 <div class="img-wrap">
-  <% if current_user_can_edit?(photo) %>
+  <% if policy(photo).destroy? %>
     <span class="close-icon-my">
       <%= button_tag '',
                      class: "btn-close btn-outline-secondary",

@@ -1,5 +1,5 @@
 module EventHelper
   def is_subscriber?
-    @event.subscribers.include?(current_user)
+    [@event.subscribers, [@event.user]].flatten.include?(current_user)
   end
 end

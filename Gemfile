@@ -13,6 +13,7 @@ gem 'turbo-rails'
 gem 'stimulus-rails'
 gem 'cssbundling-rails'
 gem 'email_validator'
+gem 'pundit'
 gem "image_processing", ">= 1.2"
 gem 'activestorage-validator'
 gem 'mailjet'
@@ -25,6 +26,7 @@ gem 'rails-i18n'
 group :development, :test do
   gem 'debug', platforms: %i[ mri mingw x64_mingw ]
   gem "letter_opener"
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -36,7 +38,5 @@ group :development do
   gem 'capistrano-yarn'
   gem 'ed25519', '~> 1.2'
   gem 'bcrypt_pbkdf', '~> 1.0'
-  gem 'aws-sdk-s3'
-
   gem 'web-console'
 end
