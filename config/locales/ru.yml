@@ -120,6 +120,8 @@ ru:
       need_pincode: 'Доступ только по пин-коду'
 
   devise:
+    confirmations:
+      new: 'Нет сообщения для подтверждения email?'
     passwords:
       new: 'Забыли пароль?'
       edit: 'Смена пароля'
@@ -139,6 +141,7 @@ ru:
     y: 'Да'
     n: 'Нужно еще подумать'
     send: 'Отправить'
+    send_email_confirmation: 'Отправить инструкцию по подтверждению email'
     password_reset: 'Отправить инструкцию по сбросу пароля'
     change_password: 'Сменить пароль'
     update: 'Обновить'
