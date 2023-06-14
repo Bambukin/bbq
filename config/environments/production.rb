@@ -49,7 +49,7 @@ Rails.application.configure do
 
   # Include generic and useful information about system operation, but avoid logging too much
   # information to avoid inadvertent exposure of personally identifiable information (PII).
-  config.log_level = :info
+  config.log_level = :warn
 
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
@@ -83,4 +83,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'sorellia.pro' }
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :mailjet
+
+  config.active_job.queue_adapter = :resque
+  config.active_job.queue_name_prefix = "bbq_#{Rails.env}"
 end

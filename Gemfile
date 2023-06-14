@@ -17,6 +17,7 @@ gem 'pundit'
 gem "image_processing", ">= 1.2"
 gem 'activestorage-validator'
 gem 'mailjet'
+gem 'resque'
 
 gem 'devise'
 gem 'devise-i18n'
@@ -36,6 +37,7 @@ group :development do
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
   gem 'capistrano-yarn'
+  gem 'capistrano-resque', require: false
   gem 'ed25519', '~> 1.2'
   gem 'bcrypt_pbkdf', '~> 1.0'
   gem 'web-console'
