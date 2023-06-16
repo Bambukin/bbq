@@ -21,7 +21,7 @@ class User < ApplicationRecord
   def self.find_for_oauth(access_token)
     data = access_token.info
     user = User.where(email: data['email'].downcase).first
-    user.confirm
+    user.confirm if user.present? && !user.confirmed?
 
     unless user
       user = User.new(name: data['name'],
