@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
+         :recoverable, :rememberable, :validatable,
+         :confirmable, :omniauthable, omniauth_providers: [:github, :vkontakte]
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
@@ -16,6 +17,23 @@ class User < ApplicationRecord
   before_validation :downcase_email
 
   after_commit :link_subscriptions, on: :create
+
+  def self.find_for_oauth(access_token)
+    data = access_token.info
+    user = User.where(email: data['email'].downcase).first
+    user.confirm
+
+    unless user
+      user = User.new(name: data['name'],
+                      email: data['email'],
+                      password: Devise.friendly_token[0, 20]
+      )
+      user.skip_confirmation!
+      user.save
+    end
+
+    user
+  end
 
   private
 

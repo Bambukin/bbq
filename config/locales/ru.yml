@@ -148,6 +148,7 @@ ru:
     delete_account: 'Удалить аккаунт'
     registration: 'Регистрация'
     sign_in: 'Войти'
+    sign_in_with: 'Войти c'
     sign_out: 'Выйти'
     profile: 'Профиль'
     save: 'Сохранить'
