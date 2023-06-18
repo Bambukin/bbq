@@ -11,6 +11,11 @@
   margin-bottom: 20px;
 }
 
+.castom-avatar{
+  height: 200px;
+  width: 200px
+}
+
 .img-icon, .img-icon-small {
   height: 50px;
   width: auto;

@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :confirmable, :omniauthable, omniauth_providers: [:github, :vkontakte]
+         :confirmable, :omniauthable, omniauth_providers: %i[github vkontakte]
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
@@ -10,7 +10,7 @@ class User < ApplicationRecord
     attachable.variant :thumb, resize_to_fill: [200, 200]
   end
 
-  validates :avatar, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }
+  validates :avatar, blob: { content_type: %w[image/png image/jpg image/jpeg] }
   validates :name, presence: true, length: { maximum: 35 }
 
   before_validation :set_name, on: :create
@@ -18,19 +18,29 @@ class User < ApplicationRecord
 
   after_commit :link_subscriptions, on: :create
 
-  def self.find_for_oauth(access_token)
+  def self.find_for_oauth(access_token, provider)
     data = access_token.info
-    user = User.where(email: data['email'].downcase).first
-    user.confirm if user.present? && !user.confirmed?
+    user = User.find_or_initialize_by(email: data['email'].downcase)
 
-    unless user
-      user = User.new(name: data['name'],
-                      email: data['email'],
-                      password: Devise.friendly_token[0, 20]
-      )
-      user.skip_confirmation!
-      user.save
+    if user.persisted?
+      user.confirm
+      return user
     end
+
+    oauth_avatar = if provider == 'Vkontakte'
+                     access_token.extra.raw_info['photo_200_orig']
+                   else
+                     data['image']
+                   end
+
+    user.assign_attributes(
+      name: data['name'],
+      email: data['email'],
+      password: Devise.friendly_token[0, 20],
+      oauth_avatar:
+    )
+    user.skip_confirmation!
+    user.save
 
     user
   end

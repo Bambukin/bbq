@@ -1,7 +1,9 @@
 module ApplicationHelper
   def user_avatar(user)
     if user.avatar.attached?
-        user.avatar.variant(:thumb)
+      user.avatar
+    elsif user.oauth_avatar.present?
+      user.oauth_avatar
     else
       asset_path('user.png')
     end
@@ -10,6 +12,8 @@ module ApplicationHelper
   def user_avatar_thumb(user)
     if user.avatar.attached?
       user.avatar.variant(:thumb)
+    elsif user.oauth_avatar.present?
+      user.oauth_avatar
     else
       asset_path('user.png')
     end
