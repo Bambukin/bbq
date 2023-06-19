@@ -12,7 +12,7 @@ class PhotoSave
   def call
     if photo.save
       photo.photo.analyze
-      NotifySubscribers.(photo)
+      NotifySubscribersJob.perform_later(photo)
       true
     else
       false

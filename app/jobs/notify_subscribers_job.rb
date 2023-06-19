@@ -1,15 +1,7 @@
-class NotifySubscribers
-  attr_reader :object
+class NotifySubscribersJob < ApplicationJob
+  queue_as :default
 
-  def self.call(object)
-    new(object).call
-  end
-
-  def initialize(object)
-    @object = object
-  end
-
-  def call
+  def perform(object)
     all_emails = (object.event.subscriptions.map(&:user_email) + [object.event.user.email] - [object.user&.email])
 
     if object.is_a?(Photo)
