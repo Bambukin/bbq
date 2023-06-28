@@ -9,7 +9,11 @@ class EventsController < ApplicationController
   end
 
   def show
-    authorize @event
+    begin
+      authorize @event
+    rescue Pundit::NotAuthorizedError
+      show_password_form
+    end
 
     @new_comment = @event.comments.build(params[:comment])
     @new_subscription = @event.subscriptions.build(params[:subscription])
@@ -53,8 +57,6 @@ class EventsController < ApplicationController
     redirect_to events_url, notice: I18n.t('controllers.events.destroyed')
   end
 
-  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-
   private
 
   def set_event
@@ -65,12 +67,8 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title, :address, :datetime, :description, :pincode)
   end
 
-  def user_not_authorized(exception)
-    if exception.query == 'show?'
-      flash.now[:alert] = I18n.t('controllers.events.wrong_pincode') if params[:pincode].present?
-      render 'password_form'
-    else
-      super
-    end
+  def show_password_form
+    flash.now[:alert] = I18n.t('controllers.events.wrong_pincode') if params[:pincode].present?
+    render 'password_form'
   end
 end

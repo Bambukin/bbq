@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def user_not_authorized(exception)
+  def user_not_authorized
     flash[:alert] = t('pundit.not_authorized')
     redirect_to(request.referrer || root_path)
   end
