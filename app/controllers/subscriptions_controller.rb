@@ -1,7 +1,7 @@
 class SubscriptionsController < ApplicationController
-  before_action :set_event, only: %i[ create destroy ]
-  before_action :set_subscription, only: %i[ destroy ]
-  after_action :verify_authorized, only: %i[ destroy ]
+  before_action :set_event, only: %i[create destroy]
+  before_action :set_subscription, only: %i[destroy]
+  after_action :verify_authorized, only: %i[destroy]
 
   def create
     @new_subscription = @event.subscriptions.build(subscription_params)
@@ -12,8 +12,6 @@ class SubscriptionsController < ApplicationController
       redirect_to @event, notice: I18n.t('controllers.subscription.created')
     else
       render 'events/show', alert: I18n.t('controllers.subscription.error')
-      # flash.keep[:success] = I18n.t('controllers.subscription.error')
-      # render turbo_stream: turbo_stream.update("flash", partial: "shared/flash")
     end
   end
 

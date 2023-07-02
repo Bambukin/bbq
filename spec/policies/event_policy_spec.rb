@@ -24,7 +24,7 @@ RSpec.describe EventPolicy, type: :policy do
   end
 
   context 'when user is an owner' do
-    let(:event) { Event.create(user: user) }
+    let(:event) { Event.create(user:) }
 
     permissions :edit?, :update?, :destroy? do
       it { is_expected.to permit(user, event) }

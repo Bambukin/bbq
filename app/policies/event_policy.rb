@@ -19,9 +19,7 @@ class EventPolicy < ApplicationPolicy
       cookies.permanent["event_#{record.id}_pincode"] = params[:pincode]
     end
 
-    unless record.pincode_valid?(cookies.permanent["event_#{record.id}_pincode"])
-      return false
-    end
+    return false unless record.pincode_valid?(cookies.permanent["event_#{record.id}_pincode"])
 
     true
   end

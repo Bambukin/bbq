@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, except: %i[ show index ]
+  before_action :authenticate_user!, except: %i[show index]
   before_action :set_event, except: %i[index new create]
 
   after_action :verify_authorized, except: [:index]

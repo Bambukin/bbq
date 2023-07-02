@@ -1,14 +1,14 @@
 class PhotosController < ApplicationController
-  before_action :set_event, only: %i[ create destroy ]
-  before_action :set_photo, only: %i[ destroy ]
-  after_action :verify_authorized, only: %i[ create destroy ]
+  before_action :set_event, only: %i[create destroy]
+  before_action :set_photo, only: %i[destroy]
+  after_action :verify_authorized, only: %i[create destroy]
 
   def create
     @new_photo = @event.photos.build(photo_params)
     @new_photo.user = current_user
     authorize @new_photo
 
-    if PhotoSave.(@new_photo)
+    if PhotoSave.call(@new_photo)
       redirect_to @event, notice: I18n.t('controllers.photos.created')
     else
       render 'events/show', alert: I18n.t('controllers.photos.error')

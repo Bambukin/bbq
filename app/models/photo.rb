@@ -6,7 +6,7 @@ class Photo < ApplicationRecord
     attachable.variant :thumb, resize_to_limit: [400, 400]
   end
 
-  validates :photo, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }
+  validates :photo, blob: { content_type: %w[image/png image/jpg image/jpeg] }
   validates :photo, presence: true
 
   scope :persisted, -> { where "id IS NOT NULL" }

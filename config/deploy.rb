@@ -1,8 +1,8 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.17.3"
+lock '~> 3.17.3'
 
-set :application, "bbq"
-set :repo_url, "git@github.com:Bambukin/bbq.git"
+set :application, 'bbq'
+set :repo_url, 'git@github.com:Bambukin/bbq.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -10,7 +10,7 @@ set :repo_url, "git@github.com:Bambukin/bbq.git"
 set :branch, 'main'
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/deploy/www/bbq"
+set :deploy_to, '/home/deploy/www/bbq'
 
 after 'deploy:restart', 'resque:restart'
 
@@ -25,10 +25,10 @@ after 'deploy:restart', 'resque:restart'
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, "config/database.yml", 'config/master.key'
+append :linked_files, 'config/database.yml', 'config/master.key'
 
 # Default value for linked_dirs is []
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "tmp/webpacker", "public/system", "vendor", "storage"
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'tmp/webpacker', 'public/system', 'vendor', 'storage'
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }

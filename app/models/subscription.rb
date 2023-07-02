@@ -5,8 +5,8 @@ class Subscription < ApplicationRecord
   before_validation :downcase_user_email
 
   validates :user_name, presence: true, unless: :user_present?
-  validates :user_id, uniqueness: {scope: :event_id}, if: :user_present?
-  validates :user_email, presence: true, email: true, uniqueness: {scope: :event_id}, unless: :user_present?
+  validates :user_id, uniqueness: { scope: :event_id }, if: :user_present?
+  validates :user_email, presence: true, email: true, uniqueness: { scope: :event_id }, unless: :user_present?
   validate :event_host, if: :user_present?
   validate :email_is_free, unless: :user_present?
 
@@ -37,14 +37,10 @@ class Subscription < ApplicationRecord
   end
 
   def email_is_free
-    if User.exists?(email: user_email)
-      errors.add(:user_email, :taken)
-    end
+    errors.add(:user_email, :taken) if User.exists?(email: user_email)
   end
 
   def event_host
-    if user_id == self.event.user.id
-      errors.add(:user_id, :invalid)
-    end
+    errors.add(:user_id, :invalid) if user_id == event.user.id
   end
 end
