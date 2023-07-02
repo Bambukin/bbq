@@ -1,24 +1,36 @@
-# README
+# BBQ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+___
+It's an application to invite friends to events.  
+You can create events, subscribe to events, write comments and add photos.
 
-* Ruby version
+You can see an example on my website https://bbq.sorellia.pro
 
-* System dependencies
+```
+Ruby version - 3.2.1
+Rails version - 7.0.5
+```
 
-* Configuration
+* Authentication with gem pundit
+* Gem omniauth for authentication through GitHub and Vkontakte
+* ActiveStorage and bucket S3 for uploading photo
+* Gallery with [PhotoSwipe](https://photoswipe.com "PhotoSwipe")
+* Subscribers receive emails with the help of Mailjet
+* Locations in events are displayed on Yandex maps
+* Styles from bootstrap 
+* Resque for background jobs
+* Capistrano to deploy 
 
-* Database creation
+Before running make sure that you have already installed 'libvips' library.  
+Execute the following line in the console to run the program:
 
-* Database initialization
+```
+bundle install
 
-* How to run the test suite
+rails db:migrate
 
-* Services (job queues, cache servers, search engines, etc.)
+bin/dev
+```
 
-* Deployment instructions
-
-* ...
+For production environment you need to set up credentials: omniauth, mailjet, yandex S3 and yandex map.
